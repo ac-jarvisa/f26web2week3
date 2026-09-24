@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/styles.css" rel="stylesheet">
+    <title>Accessibility and Other Stuff (Week 3)</title>
+</head>
+<body>
+    <!-- ai prompt for basic structure:
+     add a div with the class container, and inside add a header, nav, main, and footer, without any placeholder content -->
+    <div class="container">
+        <nav class="skiplinks">
+            <!-- skip links are designed to be the first thing the user
+             tabs to, if they are using a keyboard to navigate your site -->
+            <ul>
+                <!-- the link text should start with "skip to" -->
+                <li><a href="#mainnav">Skip to Main Navigation</a></li>
+                <li><a href="#maincont">Skip to Main Content</a></li>
+                <li><a href="#">Skip to Sidebar</a></li>
+                <li><a href="#">Skip to Footer</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1>Week 3 - Accessibility</h1>
+        </header>
+
+        <nav id="mainnav">
+            Nav
+        </nav>
+
+        <main id="maincont">
+            <section>
+                <!-- use ARIA to tell accessibility tools which element
+                 is a label for the image, and which has a description of
+                 the image -->
+                <img
+                    aria-labelledby="turtle-head"
+                    aria-describedby="turtle-desc"
+                    src="images/sunset-turtle-journey-stockcake.jpg"
+                    alt="a baby turtle">
+                <h3 id="turtle-head">Turtle</h3>
+                <p id="turtle-desc">Stuff about turtles</p>
+            </section>
+
+            <!-- to use schema, you have to define the scope (which element
+             contains all the information) and the schema you are using
+             (ie. person, event, etc) 
+             if you decide to use scheme, go to schema.org to see what schemas
+             and properties are available -->
+            <section itemscope itemtype="https://schema.org/Event">
+                <h3>Career Fair</h3>
+                <!-- use itemprop to define specific pieces of information
+                 within the schema -->
+                <article>
+                    <h4 itemprop="name">Awesome Career Fair!</h4>
+                    <p><span itemprop="director">Bob Somebody</span> is launching...</p>
+                    <p itemprop="startDate">Friday, October 30, 2026</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            Footer
+        </footer>
+    </div>
+</body>
+</html>
